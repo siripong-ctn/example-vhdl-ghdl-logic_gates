@@ -9,7 +9,7 @@ entity or_gate is --ประกาศตัวแปรขาเข้าขา
 end or_gate;
 architecture Dataflow of or_gate is --กำหนดการทำงานของวงจร
 begin
-    Y <= A or B;
+    Y <= A or B; -- output <= input *or* input
 end Dataflow;
 
 --ghdl -a or_gate.vhd or_gate_tb.vhd
