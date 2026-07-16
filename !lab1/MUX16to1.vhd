@@ -9,26 +9,35 @@ entity MUX16to1 is
     );
 end MUX16to1;
 
-architecture Behavioral of MUX16to1 is
+architecture GateLevel of MUX16to1 is
+
+    signal W : STD_LOGIC_VECTOR(15 downto 0);
+
 begin
 
-    with S select
-        Y <= D(0)  when "0000",
-             D(1)  when "0001",
-             D(2)  when "0010",
-             D(3)  when "0011",
-             D(4)  when "0100",
-             D(5)  when "0101",
-             D(6)  when "0110",
-             D(7)  when "0111",
-             D(8)  when "1000",
-             D(9)  when "1001",
-             D(10) when "1010",
-             D(11) when "1011",
-             D(12) when "1100",
-             D(13) when "1101",
-             D(14) when "1110",
-             D(15) when "1111",
-             '0'   when others;
+    W(0)  <= D(0)  and (not S(3)) and (not S(2)) and (not S(1)) and (not S(0));
+    W(1)  <= D(1)  and (not S(3)) and (not S(2)) and (not S(1)) and      S(0);
+    W(2)  <= D(2)  and (not S(3)) and (not S(2)) and      S(1)  and (not S(0));
+    W(3)  <= D(3)  and (not S(3)) and (not S(2)) and      S(1)  and      S(0);
 
-end Behavioral;
+    W(4)  <= D(4)  and (not S(3)) and      S(2)  and (not S(1)) and (not S(0));
+    W(5)  <= D(5)  and (not S(3)) and      S(2)  and (not S(1)) and      S(0);
+    W(6)  <= D(6)  and (not S(3)) and      S(2)  and      S(1)  and (not S(0));
+    W(7)  <= D(7)  and (not S(3)) and      S(2)  and      S(1)  and      S(0);
+
+    W(8)  <= D(8)  and      S(3)  and (not S(2)) and (not S(1)) and (not S(0));
+    W(9)  <= D(9)  and      S(3)  and (not S(2)) and (not S(1)) and      S(0);
+    W(10) <= D(10) and      S(3)  and (not S(2)) and      S(1)  and (not S(0));
+    W(11) <= D(11) and      S(3)  and (not S(2)) and      S(1)  and      S(0);
+
+    W(12) <= D(12) and      S(3)  and      S(2)  and (not S(1)) and (not S(0));
+    W(13) <= D(13) and      S(3)  and      S(2)  and (not S(1)) and      S(0);
+    W(14) <= D(14) and      S(3)  and      S(2)  and      S(1)  and (not S(0));
+    W(15) <= D(15) and      S(3)  and      S(2)  and      S(1)  and      S(0);
+
+    Y <= W(0)  or W(1)  or W(2)  or W(3)  or
+         W(4)  or W(5)  or W(6)  or W(7)  or
+         W(8)  or W(9)  or W(10) or W(11) or
+         W(12) or W(13) or W(14) or W(15);
+
+end GateLevel;
