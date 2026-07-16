@@ -12,7 +12,7 @@ end DMUX1to16;
 architecture GateLevel of DMUX1to16 is
 begin
 
-    Y(0)  <= D and (not S(3)) and (not S(2)) and (not S(1)) and (not S(0));
+    Y(0)  <= D and (not S(3)) and (not S(2)) and (not S(1)) and (not S(0)); -- 0000
     Y(1)  <= D and (not S(3)) and (not S(2)) and (not S(1)) and      S(0);
     Y(2)  <= D and (not S(3)) and (not S(2)) and      S(1)  and (not S(0));
     Y(3)  <= D and (not S(3)) and (not S(2)) and      S(1)  and      S(0);
@@ -30,6 +30,6 @@ begin
     Y(12) <= D and      S(3)  and      S(2)  and (not S(1)) and (not S(0));
     Y(13) <= D and      S(3)  and      S(2)  and (not S(1)) and      S(0);
     Y(14) <= D and      S(3)  and      S(2)  and      S(1)  and (not S(0));
-    Y(15) <= D and      S(3)  and      S(2)  and      S(1)  and      S(0);
+    Y(15) <= D and      S(3)  and      S(2)  and      S(1)  and      S(0); -- 1111
 
 end GateLevel;
