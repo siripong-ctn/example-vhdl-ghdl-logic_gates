@@ -11,3 +11,9 @@ file . "tb_MUX16to1.vhd" "50460048076d31981139887286875d488168e388" "20260716162
 file . "tb_DMUX1to16.vhd" "4f2ba097347e254c88c86d3bd58179ede371c2b7" "20260716165142.292":
   entity tb_dmux1to16 at 1( 0) + 0 on 37;
   architecture sim of tb_dmux1to16 at 7( 92) + 0 on 38;
+file . "mux_dmux16.vhd" "f31be1e0790014e5653372b80e5f33def427586b" "20260716191318.645":
+  entity mux_dmux16 at 1( 0) + 0 on 43;
+  architecture structural of mux_dmux16 at 15( 288) + 0 on 44;
+file . "tb_mux_dmux16.vhd" "df94e56eadbc787333984e21b1209b3bd77413ee" "20260716191318.645":
+  entity tb_mux_dmux16 at 1( 0) + 0 on 45;
+  architecture sim of tb_mux_dmux16 at 7( 94) + 0 on 46;
