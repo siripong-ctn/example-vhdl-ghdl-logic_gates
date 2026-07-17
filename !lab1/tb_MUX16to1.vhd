@@ -126,6 +126,12 @@ begin
     wait for 10 ns;
     D15 <= '0';
 
+    -- Test
+    D0 <= '1';
+    S  <= "1000";
+    wait for 10 ns;
+    D0 <= '0';
+
     wait;
 
   end process;

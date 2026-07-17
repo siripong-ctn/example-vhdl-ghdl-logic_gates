@@ -197,6 +197,13 @@ begin
     wait for 10 ns;
     D15 <= '0';
 
+    -- Test
+    D5    <= '0';
+    S_MUX  <= "0101";
+    S_DMUX <= "1000";
+    wait for 10 ns;
+    D5 <= '0';
+
     wait;
 
   end process;
