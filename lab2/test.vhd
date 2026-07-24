@@ -25,7 +25,7 @@ entity test is
 end test;
 architecture Behavioral of test is
 signal A,B,C,D : std_logic;
-signal na,nb,nc,nd : std_logic;
+signal NA,NB,NC,ND : std_logic;
 
 begin
 --------------------------------------------------
@@ -50,17 +50,17 @@ ND <= not D;
 -- Decoder
 --------------------------------------------------
 
-seg_a <= A or C or (B and D) or (NB and ND);
+seg_a <= D0 or A or C or (B and D) or (NB and ND);
 
-seg_b <= NB or (C and D) or (NC and ND);
+seg_b <= D0 or NB or (C and D) or (NC and ND);
 
-seg_c <= B or NC or D;
+seg_c <= D0 or B or NC or D;
 
-seg_d <= A or (NB and C) or (NB and ND) or (C and ND) or (B and NC and D);
-  
-seg_e <= (NB and ND) or (C and ND);
+seg_d <= D0 or A or (NB and C) or (NB and ND) or (C and ND) or (B and NC and D);
 
-seg_f <= A or (B and NC) or (C and ND) or (NC and ND);
+seg_e <= D0 or (NB and ND) or (C and ND);
+
+seg_f <= D0 or A or (B and NC) or (C and ND) or (NC and ND);
 
 seg_g <= A or (NB and C) or (B and NC) or (B and ND);
 
